@@ -1,6 +1,6 @@
 Name:		python-libusb1
 Version:	3.0.0
-Release:	1
+Release:	2
 Source0:	https://files.pythonhosted.org/packages/source/l/libusb1/libusb1-%{version}.tar.gz
 Summary:	Pure-python wrapper for libusb-1.0
 URL:		https://pypi.org/project/libusb1/

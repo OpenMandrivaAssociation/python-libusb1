@@ -7,6 +7,7 @@ URL:		https://pypi.org/project/libusb1/
 License:	LGPLv2.1+
 Group:		Development/Python
 BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildArch:	noarch
 
 %description

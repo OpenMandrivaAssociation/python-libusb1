@@ -1,28 +1,31 @@
+%define module libusb1
+
 Name:		python-libusb1
-Version:	3.3.1
+Version:	3.4.0
 Release:	1
-Source0:	https://files.pythonhosted.org/packages/source/l/libusb1/libusb1-%{version}.tar.gz
 Summary:	Pure-python wrapper for libusb-1.0
-URL:		https://pypi.org/project/libusb1/
-License:	LGPLv2.1+
+License:	LGPL-2.1-or-later
 Group:		Development/Python
+URL:		https://pypi.org/project/libusb1
+Source0:	https://files.pythonhosted.org/packages/source/l/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildSystem:	python
+BuildArch:	noarch
+BuildRequires:	pkgconfig(libusb-1.0)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
-BuildArch:	noarch
+BuildRequires:	python%{pyver}dist(wheel)
+Requires:	%{_lib}usb1.0_0
 
 %description
 Pure-python wrapper for libusb-1.0
 
-%prep
-%autosetup -p1 -n libusb1-%{version}
-
-%build
-%py_build
-
-%install
-%py_install
+%prep -a
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
 %files
-%{py_sitedir}/libusb1.py
-%{py_sitedir}/usb1
-%{py_sitedir}/libusb1-*.*-info
+%license COPYING COPYING.LESSER
+%{python_sitelib}/%{module}.py
+%{python_sitelib}/usb1
+%{python_sitelib}/%{module}-%{version}*.*-info
